@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+const logo = require('../../images/planet.png')
 
 
 const Header = () => {
@@ -7,7 +8,7 @@ const Header = () => {
       <header>
         <div>
             <div>
-              <img src={"../../images/planet.png"} alt="Space X logo" />
+              <img className="logo" src={logo} alt="Space X logo" />
             </div>
           <ul>
             <li><NavLink to="/">Rokets</NavLink></li>
