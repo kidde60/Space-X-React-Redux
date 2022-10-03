@@ -1,7 +1,22 @@
 const Profile = () => {
   return (
-    <div>
-      <h1>Profile Page</h1>
+    <div className="profile">
+      <div>
+        <h2>my mission</h2>
+        <ul>
+          <li>My missions</li>
+          <li>My missions</li>
+          <li>My missions</li>
+        </ul>
+      </div>
+      <div>
+        <h2>My rockets</h2>
+        <ul>
+          <li>my rocket</li>
+          <li>my rocket</li>
+          <li>my rocket</li>
+        </ul>
+      </div>
     </div>
   )
 }
