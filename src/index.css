@@ -12,11 +12,6 @@ body {
   height: 100px;
 }
 
-<<<<<<< HEAD
-a {
-  text-decoration: none;
-}
-=======
 .navLink {
   text-decoration: none;
 }
@@ -48,4 +43,3 @@ a:active,
   gap: 50px;
 
 }
->>>>>>> a5b0bc1367a4ca5ce8f88ae332c6124168e053f2
