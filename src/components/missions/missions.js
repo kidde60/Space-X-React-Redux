@@ -1,9 +1,20 @@
-const Missions = () => {
-  return (
-    <div>
-      <h1>Missions Page</h1>
-    </div>
-  )
-}
+import React from 'react';
+import { useSelector } from 'react-redux';
+import MissionCard from './missionCard';
 
-export default Missions;
+const Mission = () => {
+  const missions = useSelector((state) => state.missions);
+  console.log(missions);
+  const { name, description, status } = missions
+  return (
+    <MissionCard
+      name={name}
+      description={description}
+      status={status}
+    />
+
+
+  );
+};
+
+export default Mission;
