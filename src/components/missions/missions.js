@@ -1,42 +1,37 @@
-import React, { useEffect } from 'react';
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
-import MissionCard from './missionCard';
-import { getMissions } from '../../redux/Mission/mission'
+import propTypes from 'prop-types';
 
-const Mission = () => {
-  const Missions = useSelector((state) => state.missions);
-  const dispatch = useDispatch
+function Missions({ id, mission_name, description, status, isJoined, leave, join }) {
+  return (
+    <div className="card">
 
-  const fetchMisssions = createAsyncThunk(
-    "missions/fetch/missions",
-    async () => {
-      const missions = await fetch("https://api.spacexdata.com/v3/rockets");
-      const data = await missions.json();
-      console.log(data)
-      return data;
-    },
-  );
-  fetchMisssions()
+      <div className="mission">
+        <h2>{mission_name}</h2>
+        <p className="reserve-text">{isJoined ? 'Active Member' : 'Not A Member'}</p>
+        <p className="rocket-description">{description}</p>
+        <div className="buttons">
+          {
+            isJoined ? (
+              <button type="button" className="cancel-btn" onClick={() => leave(id)}>Leave Mission</button>
+            ) : (
+              <button type="button" className="reserve-btn" onClick={() => join(id)}>Join Mission</button>
+            )
+          }
+        </div>
 
-  // const missionUrl = 'https://api.spacexdata.com/v3/missions'
-  // const fetchMission = async () => {
-  //   const response = await axios.get(missionUrl).catch((error) => {
-  //     console.log('error', error)
-  //   })
-  //   console.log(response.data)
-  //   dispatch(getMissions(response.data))
+      </div>
 
-  // }
-  // useEffect(() => {
-  //   fetchMission();
-  // }, []);
-  // console.log(Missions);
-  // return (
-  //   <MissionCard />
+    </div>
+  )
+}
 
-  // );
-};
+Missions.prototype = {
+  id: propTypes.number.isRequired,
+  mission_name: propTypes.string.isRequired,
+  describe: propTypes.string.isRequired,
+  image: propTypes.string.isRequired,
+  join: propTypes.func.isRequired,
+  leave: propTypes.func.isRequired,
+  isJoined: propTypes.bool.isRequired
+}
 
-export default Mission;
+export default Missions;
