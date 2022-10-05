@@ -6,11 +6,16 @@ import Profile from "./components/profile/profile";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchRockets } from "./redux/Rockets/rockets";
+import { fetchMission } from "./redux/Mission/mission";
 
-function App(){
+function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchRockets());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchMission());
   }, [dispatch]);
 
   return (

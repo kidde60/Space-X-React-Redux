@@ -4,9 +4,9 @@ export const fetchMission = createAsyncThunk(
     "missions/fetch/missions",
     async () => {
         const missions = await fetch("https://api.spacexdata.com/v3/missions");
-        console.log(missions)
+
         const data = await missions.json();
-        console.log(data)
+
         return data;
     },
 
@@ -24,17 +24,18 @@ const missionSlice = createSlice({
             const id = action.payload;
             const ExistingMission = state.missions.find((mission) => mission.id === id);
             if (ExistingMission) {
-                ExistingMission.joined = true;
+                ExistingMission.reserved = true;
             }
         },
         LeaveMission(state, action) {
             const id = action.payload;
             const ExistingMission = state.missions.find((mission) => mission.id === id);
             if (ExistingMission) {
-                ExistingMission.joined = false;
+                ExistingMission.reserved = false;
             }
         },
     },
+
     extraReducers: {
         [fetchMission.pending]: (state) => {
             state.status = 'loading';
@@ -51,4 +52,6 @@ const missionSlice = createSlice({
 });
 
 export default missionSlice.reducer;
+
+
 export const { JoinMission, LeaveMission } = missionSlice.actions;
