@@ -1,61 +1,44 @@
 // import PropTypes from 'prop-types';
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { JoinMission, LeaveMission } from '../../redux/Mission/mission'
+import Missions from './missions'
+import { fetchMission } from "../../redux/Mission/mission";
 
 const MissionCard = () => {
-    const Missions = useSelector((state) => state.missions)
-    // const { name, description, status } = missions
+    const missionList = useSelector((state) => state.missions.missions)
+    const dispatch = useDispatch();
+    const join = (id) => {
+        dispatch(JoinMission(id))
+    }
+    const leave = (id) => {
+        dispatch(LeaveMission(id))
+    }
+
+    useEffect(() => {
+        dispatch(fetchMission());
+    }, [dispatch]);
+
     return (
-        <>
-            <div>
-                {/* <p>{name}</p> */}
-            </div>
-            {/* <p>{description}</p> */}
-            <div>
-                {/* {status */}
-                {/* ? (
-                        <p
-                            style={{ minWidth: '120px' }}
-                        >
-                            ACTIVE MEMBER
-                        </p>
-                    ) : (
-                        <p
-                            style={{ minWidth: '120px' }}
-                        >
-                            NOT A MEMBER
-                        </p>
-                    )} */}
-            </div>
-            <div>
-                {/* {!status */}
-                {/* ? (
-                <button
-                    // onClick={() => dispatch(joiningMissionAction(mission.id))}
-                    type="button"
-                    style={{ minWidth: '100px' }}
-                >
-                    Join Mission
-                </button>
-                ) : (
-                <button
-                    // onClick={() => dispatch(leavingMissionAction(mission.id))}
-                    type="button"
-                    style={{ minWidth: '100px' }}
-                >
-                    Leave Mission
-                </button>
-                    )} */}
-            </div>
-        </>
+        <div>
+            {
+                missionList.map((mission) => {
+                    const { id, mission_name, description, status } = mission;
+                    return (
+                        <Missions
+                            key={id}
+                            id={id}
+                            rocket_name={mission_name}
+                            description={description}
+                            status={status}
+                        />
+                    )
+                })
+            }
+        </div>
     )
 };
 
 export default MissionCard;
 
-// MissionCard.propTypes = {
-//     name: PropTypes.string.isRequired,
-//     description: PropTypes.string.isRequired,
-//     status: PropTypes.bool.isRequired,
-// };
 
