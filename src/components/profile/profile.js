@@ -10,7 +10,7 @@ const Profile = () => {
         </ul>
       </div>
       <div>
-        <h2 title="Header">My rockets</h2>
+        <h2>My rockets</h2>
         <ul>
           <li>my rocket</li>
           <li>my rocket</li>
