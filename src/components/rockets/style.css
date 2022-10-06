@@ -1,0 +1,40 @@
+.card {
+  display: flex;
+  margin: 20px 100px;
+  border: 1px solid gray;
+  padding: 5px;
+  box-shadow: 1px 1px 10px 1px;
+}
+
+.hub-image {
+  width: 200px;
+  height: 200px;
+  margin-right: 50px;
+}
+
+.reserve-text {
+  background-color: blueviolet;
+  width: 110px;
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 10px;
+  color: white;
+}
+
+.rocket-description {
+  padding: 2px 50px 2px 0.1px;
+}
+
+.reserve-btn {
+  background-color: blue;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px 10px;
+  margin-bottom: 30px;
+}
+
+.cancel-btn {
+  padding: 5px 10px;
+  border-radius: 5px 10px;
+  margin-bottom: 30px;
+}
