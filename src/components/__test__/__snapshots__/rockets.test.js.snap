@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check for second Space X hub 1`] = `
+<div
+  className="card"
+>
+  <img
+    alt="Space X 2"
+    src="https://farm1.staticflickr.com/929/28787338307_3453a11a77_b.jpg"
+  />
+  <div
+    className="rocket_information"
+  >
+    <h2>
+      Space X 2
+    </h2>
+    <p
+      className="reserve-text"
+    >
+      Not Reserved
+    </p>
+    <p
+      className="rocket-description"
+    />
+    <div
+      className="buttons"
+    >
+      <button
+        className="reserve-btn"
+        onClick={[Function]}
+        type="button"
+      >
+        Reserve Racket
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Check for the first Space X haub 1`] = `
+<div
+  className="card"
+>
+  <img
+    alt="Space X 1"
+    src="https://imgur.com/DaCfMsj.jpg"
+  />
+  <div
+    className="rocket_information"
+  >
+    <h2>
+      Space X 1
+    </h2>
+    <p
+      className="reserve-text"
+    >
+      Not Reserved
+    </p>
+    <p
+      className="rocket-description"
+    />
+    <div
+      className="buttons"
+    >
+      <button
+        className="reserve-btn"
+        onClick={[Function]}
+        type="button"
+      >
+        Reserve Racket
+      </button>
+    </div>
+  </div>
+</div>
+`;
