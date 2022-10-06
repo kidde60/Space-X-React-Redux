@@ -1,5 +1,5 @@
-import renderer from "react-test-renderer";
-import Rockets from "../rockets/rockets";
+import renderer from 'react-test-renderer';
+import Rockets from '../rockets/rockets';
 
 const rocket_1 = {
   id: 1,
@@ -73,4 +73,5 @@ it('Check for the Third Space X hub', () => {
   cancel={cancel}
   reserved ={reserved}
   />)
-})
+  expect(thirdRocket).toMatchSnapshot();
+});

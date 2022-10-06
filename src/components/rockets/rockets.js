@@ -1,5 +1,5 @@
-import propTypes from "prop-types";
-import "./style.css";
+import propTypes from 'prop-types';
+import './style.css';
 
 function Rockets({
   id,

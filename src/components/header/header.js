@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 const logo = require('../../images/planet.png')
 
 
@@ -19,7 +19,6 @@ const Header = () => {
       </header>
     </nav>
   )
-
 }
 
 export default Header;

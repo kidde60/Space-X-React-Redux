@@ -25,11 +25,6 @@ a {
   text-decoration: none;
 }
 
-a:active,
-.navLink:active {
-  text-decoration: underline;
-}
-
 .navList {
   width: 50%;
   display: flex;
@@ -80,4 +75,8 @@ ul {
 
 .heading {
   width: 10%;
+}
+
+.navLink a:active {
+  border: 3px solid gray;
 }

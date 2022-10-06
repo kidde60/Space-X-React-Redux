@@ -1,7 +1,8 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Missions from './missions'
 import { joinMission } from '../../redux/Mission/mission'
+import './style.css';
 
 const MissionCard = () => {
     const missionList = useSelector((state) => state.missions)

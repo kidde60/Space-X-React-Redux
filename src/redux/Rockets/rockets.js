@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchRockets = createAsyncThunk(
   "rockets/fetch/rockets",
@@ -6,44 +6,42 @@ export const fetchRockets = createAsyncThunk(
     const rockets = await fetch("https://api.spacexdata.com/v3/rockets");
     const data = await rockets.json();
     return data;
-  },
+  }
 );
 
 const rocketsSlice = createSlice({
-  name: 'rockets',
+  name: "rockets",
   initialState: {
     rockets: [],
-    status: 'idle',
+    status: "idle",
     error: null,
   },
   reducers: {
-    rocketsReserve(state, action){
+    rocketsReserve(state, action) {
       const id = action.payload;
       const ExistingRockets = state.rockets.find((rocket) => rocket.id === id);
-      if (ExistingRockets)
-      {
+      if (ExistingRockets) {
         ExistingRockets.reserved = true;
       }
     },
-    rocketsCancel(state, action){
+    rocketsCancel(state, action) {
       const id = action.payload;
       const ExistingRockets = state.rockets.find((rocket) => rocket.id === id);
-      if(ExistingRockets)
-      {
+      if (ExistingRockets) {
         ExistingRockets.reserved = false;
       }
     },
   },
   extraReducers: {
     [fetchRockets.pending]: (state) => {
-      state.status = 'loading';
+      state.status = "loading";
     },
     [fetchRockets.fulfilled]: (state, action) => {
-      state.status= 'scceeded';
+      state.status = "scceeded";
       state.rockets = [...action.payload];
     },
     [fetchRockets.error]: (state, action) => {
-      state.status = 'Error';
+      state.status = "Error";
       state.error = action.error.message;
     },
   },
