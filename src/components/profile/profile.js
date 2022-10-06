@@ -1,7 +1,5 @@
 import { useSelector } from "react-redux";
 
-
-
 const Profile = (props) => {
 
   const rockets = useSelector((state) => state.rockets.rockets);
