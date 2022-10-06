@@ -1,4 +1,11 @@
-const Profile = () => {
+import { useSelector } from "react-redux";
+
+
+
+const Profile = (props) => {
+
+  const rockets = useSelector((state) => state.rockets.rockets);
+  const reservedRockets = rockets.filter((rocket) => rocket.reserved === true)
   return (
     <div className="profile">
       <div>
@@ -12,9 +19,11 @@ const Profile = () => {
       <div>
         <h2>My rockets</h2>
         <ul>
-          <li>my rocket</li>
-          <li>my rocket</li>
-          <li>my rocket</li>
+          {
+            reservedRockets.map((rocket) => {
+              return <li id={rocket.id}>{rocket.rocket_name}</li>
+            })
+          }
         </ul>
       </div>
     </div>

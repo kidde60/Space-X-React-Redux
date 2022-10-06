@@ -1,5 +1,5 @@
 import propTypes from "prop-types";
-import './style.css';
+import "./style.css";
 
 function Rockets({
   id,
@@ -15,10 +15,10 @@ function Rockets({
       <img className="hub-image" src={image} alt={rocket_name} />
       <div className="rocket_information">
         <h2>{rocket_name}</h2>
-        {/* <p className="reserve-text">
-          {isReserved ? "Reserved" : "Not Reserved"}
-        </p> */}
-        <p className="rocket-description"><span className="reserve-text">{isReserved ? "Reserved" : ""} </span>{description}</p>
+        <p className="rocket-description">
+          <span className="reserve-text">{isReserved ? "Reserved" : ""} </span>
+          {description}
+        </p>
         <div className="buttons">
           {isReserved ? (
             <button
