@@ -1,7 +1,7 @@
 const Profile = () => {
   return (
     <div className="profile">
-      <div>
+      <div data-testId = "joined-missions">
         <h2>my mission</h2>
         <ul>
           <li>My missions</li>

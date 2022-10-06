@@ -37,45 +37,6 @@ exports[`Check for second Space X hub 1`] = `
 </div>
 `;
 
-exports[`Check for the Third Space X hub 1`] = `
-<div
-  className="card"
->
-  <img
-    alt="Space X 3"
-    src="	https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg"
-  />
-  <div
-    className="rocket_information"
-  >
-    <h2>
-      Space X 3
-    </h2>
-    <p
-      className="reserve-text"
-    >
-      Not Reserved
-    </p>
-    <p
-      className="rocket-description"
-    >
-      More details Aboute space X 3 Hub
-    </p>
-    <div
-      className="buttons"
-    >
-      <button
-        className="reserve-btn"
-        onClick={[Function]}
-        type="button"
-      >
-        Reserve Racket
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Check for the first Space X haub 1`] = `
 <div
   className="card"
