@@ -43,3 +43,41 @@ a:active,
   gap: 50px;
 
 }
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.list {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
+
+.listItems {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  text-align: left
+}
+
+.listItem {
+  display: flex;
+  padding: 0 20px;
+  align-items: center;
+  gap: 30px;
+}
+
+.paragraph {
+  width: 55%;
+  word-wrap: break-word;
+}
+
+.heading {
+  width: 10%;
+}
