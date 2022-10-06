@@ -1,9 +1,7 @@
-import { useSelector } from "react-redux";
-
-
-
-const Profile = (props) => {
-
+import { useSelector } from "react-redux"
+const Profile = () => {
+  const missionList = useSelector((state) => state.missions)
+  const joinMission = missionList.filter((mission) => mission.reserved === true)
   const rockets = useSelector((state) => state.rockets.rockets);
   const reservedRockets = rockets.filter((rocket) => rocket.reserved === true)
   return (
@@ -11,9 +9,11 @@ const Profile = (props) => {
       <div data-testId = "joined-missions">
         <h2>my mission</h2>
         <ul>
-          <li>My missions</li>
-          <li>My missions</li>
-          <li>My missions</li>
+          {
+            joinMission.map((mission) => {
+              return <li>{mission.mission_name}</li>
+            })
+          }
         </ul>
       </div>
       <div>

@@ -1,20 +1,30 @@
-import React from 'react';
+
 import { useSelector } from 'react-redux';
-import MissionCard from './missionCard';
 
-const Mission = () => {
-  const missions = useSelector((state) => state.missions);
-  console.log(missions);
-  const { name, description, status } = missions
+
+function Missions(props) {
+  const mission = props;
+  const {
+    name, desc, id, join, isReserved,
+  } = mission;
   return (
-    <MissionCard
-      name={name}
-      description={description}
-      status={status}
-    />
-
-
+    <li className="listItems">
+      <h2 className="heading">{name}</h2>
+      <p className="paragraph">{desc}</p>
+      <div>
+        <a rel="noreferrer" href="##">
+          {
+            isReserved ? 'Active Member' : 'Not A Member'
+          }
+        </a>
+      </div>
+      <button type="button" id={id} onClick={join} >
+        {
+          isReserved ? 'Leave Mission' : 'Join Mission'
+        }
+      </button>
+    </li>
   );
-};
+}
 
-export default Mission;
+export default Missions;
