@@ -1,4 +1,4 @@
-import propTypes from 'prop-types';
+
 import { useSelector } from 'react-redux';
 
 function Missions({ id, reserve, cancel, isReserved }) {
@@ -39,13 +39,5 @@ function Missions({ id, reserve, cancel, isReserved }) {
 
 }
 
-Missions.prototype = {
-  id: propTypes.number.isRequired,
-  mission_name: propTypes.string.isRequired,
-  describe: propTypes.string.isRequired,
-  reserve: propTypes.func.isRequired,
-  cancel: propTypes.func.isRequired,
-  isRequired: propTypes.bool.isRequired
-}
 
 export default Missions;
