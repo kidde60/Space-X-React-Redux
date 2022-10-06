@@ -8,7 +8,7 @@ const Profile = (props) => {
   const reservedRockets = rockets.filter((rocket) => rocket.reserved === true)
   return (
     <div className="profile">
-      <div>
+      <div data-testId = "joined-missions">
         <h2>my mission</h2>
         <ul>
           <li>My missions</li>

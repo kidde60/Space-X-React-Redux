@@ -18,17 +18,17 @@ const RocketsPage = () => {
     <div>
       {
         rocketsList.map((rocket) => {
-          const {id, rocket_name, description, flickr_images, reserved} = rocket;
+          const { id, rocket_name, description, flickr_images, reserved } = rocket;
           return (
             <Rockets
-            key={id}
-            id={id}
-            rocket_name={rocket_name}
-            description={description}
-            image={flickr_images[0]}
-            reserve={reserve}
-            cancel={cancel}
-            isReserved={reserved} 
+              key={id}
+              id={id}
+              rocket_name={rocket_name}
+              description={description}
+              image={flickr_images[0]}
+              reserve={reserve}
+              cancel={cancel}
+              isReserved={reserved}
             />
           )
         })
