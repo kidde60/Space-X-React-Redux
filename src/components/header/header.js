@@ -3,6 +3,13 @@ const logo = require('../../images/planet.png')
 
 
 const Header = () => {
+  const navLinkStyle = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? 'bold' : 'normal',
+      textDecoration: isActive ? 'underline' : 'none'
+    }
+  }
+
   return (
     <nav>
       <header>
@@ -11,9 +18,9 @@ const Header = () => {
             <img className="logo" src={logo} alt="Space X logo" />
           </div>
           <ul className="navList">
-            <li className="navLink"><NavLink to="/">Rokets</NavLink></li>
-            <li className="navLink"><NavLink to="/missions">Missions</NavLink></li>
-            <li className="navLink"><NavLink to="/profile">Profile</NavLink></li>
+            <li className="navLink"><NavLink style={navLinkStyle} to="/">Rokets</NavLink></li>
+            <li className="navLink"><NavLink style={navLinkStyle} to="/missions">Missions</NavLink></li>
+            <li className="navLink"><NavLink style={navLinkStyle} to="/profile">Profile</NavLink></li>
           </ul>
         </div>
       </header>
