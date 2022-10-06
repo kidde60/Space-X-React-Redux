@@ -1,41 +1,44 @@
-// import PropTypes from 'prop-types';
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { JoinMission, LeaveMission } from '../../redux/Mission/mission'
+import { useSelector, useDispatch } from "react-redux";
 import Missions from './missions'
-// import { fetchMission } from "../../redux/Mission/mission";
+import { joinMission } from '../../redux/Mission/mission'
 
 const MissionCard = () => {
-    const missionList = useSelector((state) => state.missions.missions)
+    const missionList = useSelector((state) => state.missions)
     const dispatch = useDispatch();
-    const reserve = (id) => {
-        dispatch(JoinMission(id));
-    }
-    const cancel = (id) => {
-        dispatch(LeaveMission(id));
+    const join = (e) => {
+        e.preventDefault()
+        dispatch(joinMission(e.target.id));
     }
 
     return (
-        <div>
-            {
-                missionList.map((mission) => {
-
-                    const { id, mission_name, description, reserved } = mission;
-                    return (
-                        <Missions
-                            key={id}
-                            id={id}
-                            mission_name={mission_name}
-                            description={description}
-                            reserve={reserve}
-                            cancel={cancel}
-                            isReserved={reserved}
-                        />
-                    )
-                })
-            }
-        </div>
-    )
+        <section >
+            <ul className="list">
+                <li className="listItem">
+                    <h2 className="heading">Mission</h2>
+                    <h2 className="paragraph">Description</h2>
+                    <h2>Status</h2>
+                </li>
+                {
+                    missionList.map((mission) => {
+                        const {
+                            mission_id, mission_name, description, reserved,
+                        } = mission;
+                        return (
+                            <Missions
+                                key={mission_id}
+                                id={mission_id}
+                                name={mission_name}
+                                desc={description}
+                                join={join}
+                                isReserved={reserved}
+                            />
+                        );
+                    })
+                }
+            </ul>
+        </section>
+    );
 };
 
 export default MissionCard;
