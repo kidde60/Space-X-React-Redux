@@ -1,12 +1,18 @@
+import { useSelector } from "react-redux"
 const Profile = () => {
+  const missionList = useSelector((state) => state.missions)
+  const joinMission = missionList.filter((mission) => mission.reserved === true)
+
   return (
     <div className="profile">
       <div>
         <h2>my mission</h2>
         <ul>
-          <li>My missions</li>
-          <li>My missions</li>
-          <li>My missions</li>
+          {
+            joinMission.map((mission) => {
+              return <li>{mission.mission_name}</li>
+            })
+          }
         </ul>
       </div>
       <div>
