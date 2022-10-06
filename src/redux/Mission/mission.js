@@ -1,57 +1,53 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchMission = createAsyncThunk(
-    "missions/fetch/missions",
-    async () => {
-        const missions = await fetch("https://api.spacexdata.com/v3/missions");
+const FETCH_MISSIONS = 'space-travelers-hub/missions/FETCH_BOOKS';
+const JOIN_MISSION = 'JOIN_MISSION';
+const LEAVE_MISSION = 'LEAVE_MISSION';
 
-        const data = await missions.json();
-
-        return data;
+export const fetchMissions = createAsyncThunk(
+    FETCH_MISSIONS,
+    async (args, { dispatch }) => {
+        const response = await fetch('https://api.spacexdata.com/v3/missions');
+        const data = await response.json();
+        dispatch({
+            type: FETCH_MISSIONS,
+            payload: data,
+        });
     },
-
 );
-
-const missionSlice = createSlice({
-    name: 'missions',
-    initialState: {
-        missions: [],
-        status: 'idle',
-        error: null,
-    },
-    reducers: {
-        JoinMission(state, action) {
-            const id = action.payload;
-            const ExistingMission = state.missions.find((mission) => mission.id === id);
-            if (ExistingMission) {
-                ExistingMission.reserved = true;
-            }
-        },
-        LeaveMission(state, action) {
-            const id = action.payload;
-            const ExistingMission = state.missions.find((mission) => mission.id === id);
-            if (ExistingMission) {
-                ExistingMission.reserved = false;
-            }
-        },
-    },
-
-    extraReducers: {
-        [fetchMission.pending]: (state) => {
-            state.status = 'loading';
-        },
-        [fetchMission.fulfilled]: (state, action) => {
-            state.status = 'success';
-            state.missions = [...action.payload];
-        },
-        [fetchMission.error]: (state, action) => {
-            state.status = 'Error';
-            state.error = action.error.message;
-        },
-    },
+export const joinMission = (id) => ({
+    type: JOIN_MISSION,
+    id,
 });
-
-export default missionSlice.reducer;
-
-
-export const { JoinMission, LeaveMission } = missionSlice.actions;
+const setReserved = (state, id) => {
+    state.map((mission) => {
+        if (mission.mission_id === id) {
+            if (mission.reserved) {
+                mission.reserved = false;
+            } else {
+                mission.reserved = true;
+            }
+        }
+        return mission;
+    });
+    return state;
+};
+const missionsReducer = (state = [], action) => {
+    switch (action.type) {
+        case FETCH_MISSIONS: {
+            return [...action.payload];
+        }
+        case JOIN_MISSION: {
+            const arr = state.map((obj) => ({ ...obj }));
+            const missions = setReserved(arr, action.id);
+            return [...missions];
+        }
+        case LEAVE_MISSION: {
+            return [...action.payload];
+        }
+        default: {
+            return state;
+        }
+    }
+};
+export default missionsReducer;
