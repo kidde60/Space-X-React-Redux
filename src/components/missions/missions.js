@@ -1,4 +1,4 @@
-import "./style.css";
+import './style.css';
 /* eslint-disable */
 function Missions(props) {
   const mission = props;
@@ -10,8 +10,7 @@ function Missions(props) {
       {isReserved && (
         <div>
           <button type="button" onClick={join}>
-            {"Not A Member "}
-            leave mission
+            {"Active Member "}
           </button>
         </div>
       )}
@@ -21,8 +20,7 @@ function Missions(props) {
             type="button"
             onClick={join}
           >
-            {"Active Member "}
-            Join Mission
+            {"Not A Member "}
           </button>
         </div>
       )}
