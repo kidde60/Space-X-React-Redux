@@ -17,28 +17,29 @@ function Rockets({
       <div className="rocket_information">
         <h2>{rocket_name}</h2>
         <p className="rocket-description">
-          <span className="reserve-text">{isReserved ? 'Reserved' : ' '} </span>
+          <span className="reserve-text">{isReserved ? "Reserved" : " "} </span>
           {description}
         </p>
-        <div className="buttons">
-          {isReserved ? (
-            <button
-              type="button"
-              className="cancel-btn"
-              onClick={() => cancel(id)}
-            >
-              Cancel Reserve
-            </button>
-          ) : (
-            <button
-              type="button"
-              className="reserve-btn"
-              onClick={() => reserve(id)}
-            >
-              Reserve Racket
-            </button>
-          )}
-        </div>
+        {isReserved && (
+          <button
+            className="cancel-btn"
+            type="button"
+            onClick={() => cancel(id)}
+          >
+            {" "}
+            Cancel Reservation
+          </button>
+        )}{" "}
+        {!isReserved && (
+          <button
+            className="reserve-btn"
+            type="button"
+            onClick={() => reserve(id)}
+          >
+            {" "}
+            Reserve Rocket
+          </button>
+        )}
       </div>
     </div>
   );
