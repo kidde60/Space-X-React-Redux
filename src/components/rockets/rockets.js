@@ -1,3 +1,4 @@
+/* eslint-disable */
 import propTypes from 'prop-types';
 import './style.css';
 
@@ -16,7 +17,7 @@ function Rockets({
       <div className="rocket_information">
         <h2>{rocket_name}</h2>
         <p className="rocket-description">
-          <span className="reserve-text">{isReserved ? "Reserved" : ""} </span>
+          <span className="reserve-text">{isReserved ? 'Reserved' : ' '} </span>
           {description}
         </p>
         <div className="buttons">

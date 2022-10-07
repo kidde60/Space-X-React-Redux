@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useSelector } from 'react-redux';
 import './style.css';
 
@@ -14,7 +15,7 @@ const Profile = () => {
         <h2>my mission</h2>
         <ul>
           {joinMission.map((mission) => {
-            return <li className='reserved-rockets'>{mission.mission_name}</li>;
+            return <li className="reserved-rockets">{mission.mission_name}</li>;
           })}
         </ul>
       </div>
@@ -22,7 +23,11 @@ const Profile = () => {
         <h2>My rockets</h2>
         <ul>
           {reservedRockets.map((rocket) => {
-            return <li className='reserved-rockets' id={rocket.id}>{rocket.rocket_name}</li>;
+            return (
+              <li className="reserved-rockets" id={rocket.id}>
+                {rocket.rocket_name}
+              </li>
+            );
           })}
         </ul>
       </div>

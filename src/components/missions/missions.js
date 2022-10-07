@@ -16,7 +16,7 @@ function Missions(props) {
           }
         </a>
       </div>
-      <button type="button" id={id} onClick={join} >
+      <button type="button" id={ id } onClick={ join } >
         {
           isReserved ? 'Leave Mission' : 'Join Mission'
         }

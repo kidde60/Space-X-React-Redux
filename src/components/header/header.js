@@ -1,14 +1,14 @@
+/* eslint-disable */
 import { NavLink } from 'react-router-dom';
 const logo = require('../../images/planet.png')
-
 
 const Header = () => {
   const navLinkStyle = ({ isActive }) => {
     return {
       fontWeight: isActive ? 'bold' : 'normal',
-      textDecoration: isActive ? 'underline' : 'none'
-    }
-  }
+      textDecoration: isActive ? 'underline' : 'none',
+    };
+  };
 
   return (
     <nav>
@@ -25,7 +25,7 @@ const Header = () => {
         </div>
       </header>
     </nav>
-  )
-}
+  );
+};
 
 export default Header;

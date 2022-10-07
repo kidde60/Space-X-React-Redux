@@ -1,17 +1,18 @@
+/* eslint-disable */
 import renderer from 'react-test-renderer';
 import Rockets from '../rockets/rockets';
 
 const rocket_1 = {
   id: 1,
-  rocket_name: "Space X 1",
-  describe: "Some Infromation about Space X 1",
-  image: "https://imgur.com/DaCfMsj.jpg",
+  rocket_name: 'Space X 1',
+  describe: 'Some Infromation about Space X 1',
+  image: 'https://imgur.com/DaCfMsj.jpg',
   reserve: true,
   cancel: true,
   reserved: false,
 };
 
-it("Check for the first Space X haub", () => {
+it('Check for the first Space X haub', () => {
   const { id, rocket_name, describe, image, reserve, cancel, reserved } =
     rocket_1;
   const firstRocket = renderer
@@ -24,7 +25,7 @@ it("Check for the first Space X haub", () => {
         reserve={reserve}
         cancel={cancel}
         reserved={reserved}
-      />
+      />,
     )
     .toJSON();
   expect(firstRocket).toMatchSnapshot();

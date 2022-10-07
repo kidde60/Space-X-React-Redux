@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useSelector, useDispatch } from 'react-redux';
 import { rocketsCancel, rocketsReserve } from '../../redux/Rockets/rockets';
 import Rockets from './rockets';
@@ -17,13 +18,12 @@ const RocketsPage = () => {
   return (
     <div>
       {rocketsList.map((rocket) => {
-        const { id, rocket_name, description, flickr_images, reserved } =
-          rocket;
+        const { id, rocket_name, description, flickr_images, reserved } = rocket;
         return (
           <Rockets
             key={id}
             id={id}
-            rocket_name={rocket_name}
+            rocketName={rocket_name}
             description={description}
             image={flickr_images[0]}
             reserve={reserve}
