@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import Header from './components/header/header';
 import RocketsPage from './components/rockets/rocketsPage';
 import MissionCard from './components/missions/missionCard';
 import Profile from './components/profile/profile';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { fetchRockets } from './redux/Rockets/rockets';
 import { fetchMissions } from './redux/Mission/mission';
 
@@ -27,9 +27,9 @@ function App() {
           <Route path="/missions" element={<MissionCard />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
-      </Router>,
+      </Router>
+      ,
     </>
   );
-};
-
+}
 export default App;
