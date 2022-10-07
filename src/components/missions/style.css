@@ -1,0 +1,10 @@
+.listItems {
+  border: 1px solid gray;
+  box-shadow: 1px 1px 10px 3px;
+  margin: 20px 50px;
+}
+
+.listItem {
+  border: 1px solid gray;
+  margin: 20px 50px;
+}
