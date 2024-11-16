@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const FETCH_MISSIONS = "space-travelers-hub/missions/FETCH_BOOKS";
+const FETCH_MISSIONS = "space-travelers-hub/missions/FETCH_MISSION";
 const JOIN_MISSION = "JOIN_MISSION";
 const LEAVE_MISSION = "LEAVE_MISSION";
 
