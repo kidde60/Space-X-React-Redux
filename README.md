@@ -2,7 +2,7 @@
 
 # Space X Hub
 > Description of the project.
-- This is a simple project that users can reserve a roket and join for favorite missions.
+- This is a simple project that users can reserve a rocket and join for favorite missions.
 
 ## Built With
 
